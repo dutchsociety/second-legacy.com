@@ -3,6 +3,7 @@ import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
 
 import { cn } from "@/lib/utils";
+import Script from "next/script";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -23,11 +24,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <script
+        <Script
           defer
           data-domain="second-legacy.com"
           src="https://plausible.io/js/script.js"
-        ></script>
+        />
       </head>
       <body
         className={cn(
