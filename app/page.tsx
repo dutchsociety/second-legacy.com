@@ -5,13 +5,11 @@ import { LetsConnect } from "./_components/letsconnect";
 export default function Home() {
   return (
     <main className="space-y-32">
-      <div className="pt-24 px-24">
+      <div className="md:p-24">
         <HeroComp />
       </div>
 
-      <section>
-        <Businesses />
-      </section>
+      <Businesses />
 
       <section>
         <LetsConnect />

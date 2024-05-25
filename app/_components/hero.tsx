@@ -98,16 +98,9 @@ export const Highlight = ({
 export function HeroComp() {
   return (
     <Hero>
-      <h1 className="text-6xl font-bold text-white text-center">
-        With <Highlight>Second Legacy</Highlight>,<br /> nothing becomes boring.
+      <h1 className="text-2xl md:text-6xl font-bold text-white text-center">
+        <Highlight>Second Legacy</Highlight>,<br /> Your <Highlight>development</Highlight> and <Highlight>advisory partner</Highlight> in (Web3) Tech.
       </h1>
-      <h2 className="text-6xl font-bold text-white text-center">
-        A Indie Hacker and <Highlight>Solopreneur</Highlight>
-        <br /> Stack by <Highlight>Martijn Jansen</Highlight>
-      </h2>
-      <h3 className="text-xl text-white text-center mt-8">
-        Tech Director - Entrepreneur - Full Stack (Web3) Engineer (NextJS).
-      </h3>
       <p></p>
     </Hero>
   );
