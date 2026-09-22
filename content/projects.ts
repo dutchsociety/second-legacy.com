@@ -89,6 +89,69 @@ export const projects: Project[] = [
     featured: false,
   },
   {
+    slug: "yes-beauty-beek",
+    title: "YES! Beauty",
+    tagline: "Schoonheidssalon · Beek",
+    summary:
+      "Een heldere site voor behandelingen, uitstraling en contact — passend bij een lokale salon met vaste klanten.",
+    problem:
+      "Potentiële klanten zoeken online naar behandelingen en openingstijden, maar vonden vooral losse social posts of verouderde info. De salon wilde één betrouwbare plek die vertrouwen uitstraalt.",
+    solution:
+      "Een overzichtelijke website met diensten, sfeer en duidelijke manieren om contact op te nemen of langs te komen — mobiel eerst, zonder overbodige poespas.",
+    result:
+      "Een professionele online aanwezigheid in Beek die past bij de salon: snel te begrijpen, makkelijk te delen, klaar om door YES! Beauty zelf verder aan te vullen.",
+    metrics: [
+      "Lokaal gericht: Beek en omgeving",
+      "Focus op diensten en contact",
+    ],
+    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+    year: "—",
+    role: "Design & bouw",
+    featured: true,
+  },
+  {
+    slug: "mbrugman-schilderwerken-beek",
+    title: "MBrugman Schilderwerken",
+    tagline: "Schilderbedrijf · Beek",
+    summary:
+      "Website voor een vakman: wat je doet, waar je werkt en hoe opdrachtgevers je bereiken.",
+    problem:
+      "Aanbevelingen en mond-tot-mond werken goed, maar zonder sterke site mis je opdrachten van mensen die eerst online oriënteren. Referenties en bereikbaarheid moesten in één oogopslag duidelijk zijn.",
+    solution:
+      "Een no-nonsense site met werkgebied, type klussen en contact — gebouwd om snel te laden en serieus over te komen, ook op telefoon.",
+    result:
+      "MBrugman heeft een vindbare, professionele uitstraling online; opdrachtgevers in Beek en omstreken zien direct wat ze kunnen verwachten.",
+    metrics: [
+      "Lokaal werkgebied: Beek",
+      "Contact en vertrouwen centraal",
+    ],
+    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+    year: "—",
+    role: "Design & bouw",
+    featured: true,
+  },
+  {
+    slug: "frits-jurrius-aerdt",
+    title: "Frits Jurrius",
+    tagline: "Lokaal ondernemerschap · Aerdt",
+    summary:
+      "Persoonlijke bedrijfssite voor een ondernemer in Aerdt — duidelijk wie je bent en hoe klanten je vinden.",
+    problem:
+      "Zonder centrale website versnipperde informatie over diensten en bereikbaarheid. Bezoekers die via Google of een link langskomen, misten een helder beeld van wat Frits aanbiedt.",
+    solution:
+      "Een rustige, toegankelijke site met de kern op één plek: intro, aanbod en contact. Geschikt om later eenvoudig uit te breiden wanneer het bedrijf groeit.",
+    result:
+      "Een betrouwbare online basis in Aerdt — professioneel genoeg voor nieuwe contacten, persoonlijk genoeg om bij de ondernemer te passen.",
+    metrics: [
+      "Lokaal verankerd: Aerdt",
+      "Uitbreidbaar contentmodel",
+    ],
+    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+    year: "—",
+    role: "Design & bouw",
+    featured: true,
+  },
+  {
     slug: "hello-labs",
     title: "HELLO Labs",
     tagline: "Entertainment & crypto product studio",
