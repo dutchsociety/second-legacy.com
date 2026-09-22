@@ -1,4 +1,74 @@
 @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
-  
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 248 246 242;
+    --foreground: 28 32 36;
+    --card: 255 255 253;
+    --muted: 240 236 228;
+    --muted-foreground: 92 98 104;
+    --border: 220 214 204;
+    --ring: 30 77 92;
+    --accent: 30 77 92;
+    --accent-warm: 184 149 107;
+    --hero-glow: 30 77 92;
+  }
+
+  .dark {
+    --background: 14 16 18;
+    --foreground: 236 232 226;
+    --card: 20 23 26;
+    --muted: 32 36 40;
+    --muted-foreground: 156 162 168;
+    --border: 42 48 54;
+    --ring: 184 149 107;
+    --accent: 72 130 148;
+    --accent-warm: 196 165 125;
+    --hero-glow: 72 130 148;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    background-image: radial-gradient(
+        ellipse 120% 80% at 50% -30%,
+        rgb(var(--hero-glow) / 0.08),
+        transparent 55%
+      ),
+      radial-gradient(
+        ellipse 60% 40% at 100% 0%,
+        rgb(var(--accent-warm) / 0.06),
+        transparent 50%
+      );
+  }
+
+  .dark body {
+    background-image: radial-gradient(
+        ellipse 100% 60% at 50% -20%,
+        rgb(var(--hero-glow) / 0.12),
+        transparent 50%
+      ),
+      radial-gradient(
+        ellipse 50% 30% at 0% 100%,
+        rgb(var(--accent-warm) / 0.05),
+        transparent 45%
+      );
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+}

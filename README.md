@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# second-legacy.com
 
-## Getting Started
+Persoonlijke portfolio-site voor Martijn Jansen (Second Legacy). Next.js 14 App Router, TypeScript, Tailwind CSS, framer-motion.
 
-First, run the development server:
+## Lokaal draaien
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Als je **500** of `Cannot find module './xxx.js'` ziet: stop de dev-server, verwijder de cache en start opnieuw (gebeurt vaak na `pnpm build` terwijl `dev` nog draait):
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+rm -rf .next
+pnpm dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Open [http://localhost:3000](http://localhost:3000).
 
-## Learn More
+## Content uitbreiden
 
-To learn more about Next.js, take a look at the following resources:
+Alle projectcopy staat in **`content/projects.ts`**. Het `Project`-type bevat o.a. `assignment` (opdrachtomschrijving), `category`, en optioneel `deliverables[]` (meerdere producten onder één case, zoals HELLO Labs).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Logo: **`public/brand/logo-mark.png`** (header en OG). Vervang met definitieve branding indien gewenst.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Site-brede instellingen (e-mail, LinkedIn-placeholder, domein): **`content/site.ts`**.
 
-## Deploy on Vercel
+Detailpagina’s worden automatisch gegenereerd op `/work/[slug]` via `generateStaticParams`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Structuur
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- `app/page.tsx` — home (hero, use cases, over, contact)
+- `app/work/[slug]/page.tsx` — projectdetail
+- `app/sitemap.ts` & `app/robots.ts` — SEO
+- `components/` — Header, Footer, ThemeToggle, ProjectCard, enz.
+
+## Thema
+
+Donker/licht volgt standaard systeemvoorkeur; de toggle slaat de keuze op in `localStorage` (`second-legacy-theme`).
+
+## Deploy op Vercel
+
+1. Importeer de repo in Vercel.
+2. Framework preset: **Next.js** (geen `output: 'export'` nodig — standaard static/SSR hybrid werkt goed).
+3. Domein `second-legacy.com` koppelen in project settings.
+
+```bash
+pnpm build
+```
+
+Plausible-analytics blijft in `app/layout.tsx` (domain `second-legacy.com`).
+
+## LinkedIn
+
+Vervang `linkedInUrl` in `content/site.ts` door je echte profiel-URL.
