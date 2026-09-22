@@ -9,6 +9,13 @@ pnpm install
 pnpm dev
 ```
 
+Als je **500** of `Cannot find module './xxx.js'` ziet: stop de dev-server, verwijder de cache en start opnieuw (gebeurt vaak na `pnpm build` terwijl `dev` nog draait):
+
+```bash
+rm -rf .next
+pnpm dev
+```
+
 Open [http://localhost:3000](http://localhost:3000).
 
 ## Content uitbreiden
