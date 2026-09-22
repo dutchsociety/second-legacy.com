@@ -3,7 +3,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FadeIn } from "@/components/fade-in";
 import { Button } from "@/components/button";
-import { getProjectBySlug, projects } from "@/content/projects";
+import {
+  getProjectBySlug,
+  projectCategoryLabels,
+  projects,
+} from "@/content/projects";
 import { siteConfig } from "@/content/site";
 
 type PageProps = {
@@ -36,28 +40,83 @@ export default function WorkDetailPage({ params }: PageProps) {
   return (
     <main id="main" className="pb-20">
       <article>
-        <header className="border-b border-border">
+        <header className="border-b border-border bg-card/30">
           <div className="mx-auto max-w-3xl px-6 py-16 md:py-20">
             <FadeIn>
               <Link
                 href="/#werk"
-                className="text-sm text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
+                className="text-sm text-muted-foreground hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
               >
-                ← Terug naar werk
+                ← Terug naar opdrachten
               </Link>
-              <p className="mt-8 text-sm font-medium uppercase tracking-widest text-muted-foreground">
-                {project.year}
-                {project.role ? ` · ${project.role}` : ""}
-              </p>
-              <h1 className="mt-3 text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+              <div className="mt-8 flex flex-wrap items-center gap-2">
+                <span className="rounded-full border border-border bg-muted/60 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+                  {projectCategoryLabels[project.category]}
+                </span>
+                <span className="text-sm text-muted-foreground">
+                  {project.year}
+                  {project.role ? ` · ${project.role}` : ""}
+                </span>
+              </div>
+              <h1 className="mt-4 text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
                 {project.title}
               </h1>
-              <p className="mt-3 text-lg text-muted-foreground">{project.tagline}</p>
+              <p className="mt-3 text-lg text-accent">{project.tagline}</p>
+              <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
+                {project.summary}
+              </p>
             </FadeIn>
           </div>
         </header>
 
         <div className="mx-auto max-w-3xl px-6 py-12 md:py-16 space-y-14">
+          <FadeIn>
+            <section
+              aria-labelledby="assignment-heading"
+              className="rounded-2xl border border-accent/20 bg-accent/[0.04] p-6 md:p-8"
+            >
+              <h2
+                id="assignment-heading"
+                className="text-lg font-semibold text-foreground"
+              >
+                Opdrachtomschrijving
+              </h2>
+              <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
+                {project.assignment}
+              </p>
+            </section>
+          </FadeIn>
+
+          {project.deliverables && project.deliverables.length > 0 && (
+            <FadeIn>
+              <section aria-labelledby="deliverables-heading">
+                <h2
+                  id="deliverables-heading"
+                  className="text-lg font-semibold text-foreground"
+                >
+                  Deliverables
+                </h2>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Bij deze opdracht ging het om meerdere producten en systemen — niet om één
+                  website.
+                </p>
+                <ul className="mt-6 space-y-4">
+                  {project.deliverables.map((item) => (
+                    <li
+                      key={item.title}
+                      className="rounded-xl border border-border bg-card p-5 md:p-6"
+                    >
+                      <h3 className="font-semibold text-foreground">{item.title}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground md:text-base">
+                        {item.description}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            </FadeIn>
+          )}
+
           <FadeIn>
             <section aria-labelledby="problem-heading">
               <h2
@@ -78,7 +137,7 @@ export default function WorkDetailPage({ params }: PageProps) {
                 id="solution-heading"
                 className="text-lg font-semibold text-foreground"
               >
-                Oplossing
+                Aanpak
               </h2>
               <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
                 {project.solution}
@@ -98,7 +157,7 @@ export default function WorkDetailPage({ params }: PageProps) {
                 {project.result}
               </p>
               {project.metrics && project.metrics.length > 0 && (
-                <ul className="mt-6 space-y-2 border-l-2 border-border pl-4">
+                <ul className="mt-6 space-y-2 border-l-2 border-accent/40 pl-4">
                   {project.metrics.map((m) => (
                     <li
                       key={m}

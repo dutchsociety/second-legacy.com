@@ -28,6 +28,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.brand,
     title: `${siteConfig.name} · ${siteConfig.brand}`,
     description: siteConfig.description,
+    images: [{ url: "/brand/logo-mark.png", width: 512, height: 512, alt: siteConfig.brand }],
   },
   twitter: {
     card: "summary_large_image",

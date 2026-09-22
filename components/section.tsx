@@ -36,7 +36,7 @@ export function Section({
                 id={id ? `${id}-heading` : undefined}
                 className="text-2xl font-semibold tracking-tight text-foreground md:text-3xl"
               >
-                {title}
+                <span className="text-accent">·</span> {title}
               </h2>
             )}
             {description && (

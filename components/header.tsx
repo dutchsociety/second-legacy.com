@@ -1,10 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { BrandLogo } from "@/components/brand-logo";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { siteConfig } from "@/content/site";
-import { cn } from "@/lib/utils";
 
 const nav = [
   { href: "/#werk", label: "Werk" },
@@ -13,28 +11,16 @@ const nav = [
 ];
 
 export function Header() {
-  const pathname = usePathname();
-
   return (
-    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <Link
-          href="/"
-          className="text-sm font-semibold tracking-tight text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
-        >
-          {siteConfig.brand}
-        </Link>
-        <nav className="flex items-center gap-1 sm:gap-6" aria-label="Hoofdnavigatie">
+    <header className="sticky top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur-lg">
+      <div className="mx-auto flex h-[4.25rem] max-w-6xl items-center justify-between px-6">
+        <BrandLogo />
+        <nav className="flex items-center gap-2 sm:gap-6" aria-label="Hoofdnavigatie">
           {nav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className={cn(
-                "text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm px-1",
-                pathname === "/" && item.href.startsWith("/#")
-                  ? undefined
-                  : undefined
-              )}
+              className="text-sm text-muted-foreground transition-colors hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm px-1.5 py-1"
             >
               {item.label}
             </Link>

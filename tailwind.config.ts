@@ -28,6 +28,8 @@ const config: Config = {
         "muted-foreground": "rgb(var(--muted-foreground) / <alpha-value>)",
         border: "rgb(var(--border) / <alpha-value>)",
         ring: "rgb(var(--ring) / <alpha-value>)",
+        accent: "rgb(var(--accent) / <alpha-value>)",
+        "accent-warm": "rgb(var(--accent-warm) / <alpha-value>)",
       },
     },
   },

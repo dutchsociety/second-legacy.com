@@ -13,7 +13,9 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Content uitbreiden
 
-Alle projectcopy staat in **`content/projects.ts`**. Voeg een object toe aan de `projects`-array met het `Project`-type (slug, title, tagline, summary, problem, solution, result, optioneel metrics, tech, year, role, featured).
+Alle projectcopy staat in **`content/projects.ts`**. Het `Project`-type bevat o.a. `assignment` (opdrachtomschrijving), `category`, en optioneel `deliverables[]` (meerdere producten onder één case, zoals HELLO Labs).
+
+Logo: **`public/brand/logo-mark.png`** (header en OG). Vervang met definitieve branding indien gewenst.
 
 Site-brede instellingen (e-mail, LinkedIn-placeholder, domein): **`content/site.ts`**.
 
